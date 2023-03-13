@@ -11,7 +11,7 @@ import eye from '../../assets/eye.svg';
 interface IFormInput {
   labelText: string;
   placeholder: string;
-  type: 'password' | "email" | 'text';
+  type: 'password' | "email";
   isHidden?: boolean;
   onClick?: () => void;
 }
@@ -29,17 +29,15 @@ export function FormInput({ labelText, placeholder, type, isHidden, onClick }: I
         />
       )}
 
-      {type === "password" || type === "text" && (
+      {type === "password" && (
         <>
           <Input
-            type={type}
+            type={isHidden ? 'password' : 'text'}
             iconFocus={passwordIconFocus}
             icon={passwordIcon}
             placeholder={placeholder}
           />
-          <ShowPasswordButton onClick={onClick}>
-            <img src={eye} />
-          </ShowPasswordButton>
+          <ShowPasswordButton onClick={onClick}><img src={eye} /></ShowPasswordButton>
         </>
       )}
 

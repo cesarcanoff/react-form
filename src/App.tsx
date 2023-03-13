@@ -1,11 +1,14 @@
-import { 
+import {
   BackgroundImage,
   Container,
   LeftContainer,
-  RightContainer,
   Logo,
   LoginContainer,
-  FormContainer
+  FormContainer,
+  SettingsLogin,
+  ForgetMyPasswordText,
+  Button,
+  Account
 } from './styles/app.style';
 import './styles/global.css';
 
@@ -19,9 +22,14 @@ import { useState } from 'react';
 function App() {
 
   const [isSecure, setIsSecure] = useState(true)
+  const [checked, setChecked] = useState(false);
 
   function changeSecure() {
     setIsSecure(!isSecure);
+  }
+
+  function handleCheckboxChange() {
+    setChecked(!checked);
   }
 
   return (
@@ -39,16 +47,19 @@ function App() {
             <FormInput
               labelText='Password'
               placeholder="Digite sua senha"
-              type={isSecure ? 'password' : 'text'}
+              type='password'
+              isHidden={isSecure}
               onClick={changeSecure}
             />
+            <SettingsLogin>
+            <ForgetMyPasswordText href='#'>Esqueci minha senha</ForgetMyPasswordText>
+            </SettingsLogin>
+            <Button>ENTRAR</Button>
+
+            <Account>Não tem conta? <strong>Registre-se</strong></Account>
           </FormContainer>
         </LoginContainer>
       </LeftContainer>
-
-      <RightContainer>
-        <BackgroundImage src={backgroundImage} />
-      </RightContainer>
     </Container>
   )
 }

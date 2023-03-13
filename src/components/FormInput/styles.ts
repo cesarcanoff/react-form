@@ -8,6 +8,7 @@ interface Input {
 export const InputContainer = styled.div`
   width: 100%;
   padding: 10px;
+  margin-bottom: 10px;
 `;
 
 export const InputLabel = styled.label`
@@ -53,6 +54,7 @@ export const ShowPasswordButton = styled.button`
   position: relative;
   left: 90%;
   bottom: 43px;
+  
   img {
     width: 100%;
   }
